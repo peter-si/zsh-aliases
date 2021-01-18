@@ -22,7 +22,7 @@ alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-alias t='todo.sh -d ~/.config/todo/config'
+alias t='task'
 
 alias zshreload='source ~/.zshrc'
 alias sshconf='${=EDITOR} ~/.ssh/config'
