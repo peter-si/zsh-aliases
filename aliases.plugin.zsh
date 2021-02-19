@@ -16,6 +16,7 @@ alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 alias cd..='cd ..'
 alias ducks='du -cks * | sort -rn | head'
+alias duh='du -hs * | sort -rh | head'
 
 alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 
