@@ -35,6 +35,7 @@ alias nano='nano -c'
 alias pax='ps aux'
 alias ssh='TERM=xterm-256color ssh'
 alias packages='comm -23 <(yay -Qqett | sort) <(yay -Qqg base -g base-devel | sort | uniq)'
+alias undim='~/.local/share/scripts/lockscreen/locker.sh undim'
 
 # Command line head / tail shortcuts
 alias -g C='| xclip'
