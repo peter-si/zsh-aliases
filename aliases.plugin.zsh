@@ -19,6 +19,8 @@ alias ducks='du -cks * | sort -rn | head'
 alias duh='du -hs * | sort -rh | head'
 
 alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
+alias mine='systemctl --user start PhoenixMiner.service'
+alias stop_mine='systemctl --user stop PhoenixMiner.service'
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
