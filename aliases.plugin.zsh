@@ -26,6 +26,7 @@ alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='task'
+alias tf='taskfile'
 
 alias zshreload='source ~/.zshrc'
 alias sshconf='${=EDITOR} ~/.ssh/config'
