@@ -27,6 +27,7 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='task'
 alias tf='taskfile'
+alias update='yay -Suy linux linux-headers linux-hardened linux-hardened-headers'
 
 alias zshreload='source ~/.zshrc'
 alias sshconf='${=EDITOR} ~/.ssh/config'
