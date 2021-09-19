@@ -18,28 +18,25 @@ alias cd..='cd ..'
 alias ducks='du -cks * | sort -rn | head'
 alias duh='du -hs * | sort -rh | head'
 
-alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
-alias mine='systemctl --user start PhoenixMiner.service'
-alias stop_mine='systemctl --user stop PhoenixMiner.service'
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='task'
-alias tf='taskfile'
-alias update='yay -Suy --noconfirm linux linux-headers linux-hardened linux-hardened-headers'
+alias tf='gtask'
+alias update='yay -Suy --noconfirm linux linux-headers'
 
 alias zshreload='source ~/.zshrc'
+alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias sshconf='${=EDITOR} ~/.ssh/config'
 alias i3conf='${=EDITOR} ~/.config/i3/config.base'
-alias swayconf='${=EDITOR} ~/.config/sway/config'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias xclip='xclip -selection c'
 alias nano='nano -c'
 alias pax='ps aux'
 alias ssh='TERM=xterm-256color ssh'
 alias packages='comm -23 <(yay -Qqett | sort) <(yay -Qqg base -g base-devel | sort | uniq)'
-alias undim='~/.local/share/scripts/lockscreen/locker.sh undim'
+#alias undim='~/.local/share/scripts/lockscreen/locker.sh undim'
 
 # Command line head / tail shortcuts
 alias -g C='| xclip'
