@@ -23,7 +23,7 @@ alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='task'
-alias tf='gtask'
+alias tf='terraform'
 alias update='yay -Suy --noconfirm linux linux-headers'
 
 alias zshreload='source ~/.zshrc'
