@@ -23,7 +23,7 @@ alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='task'
-alias update='yay -Suy --noconfirm linux linux-headers'
+alias update='yay -Sy --noconfirm archlinux-keyring;yay -Su --noconfirm linux linux-headers'
 
 alias zshreload='source ~/.zshrc'
 alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
