@@ -20,7 +20,8 @@ alias rmrf='rm -rf'
 alias ducks='du -cks * | sort -rn | head'
 alias duh='du -hs * | sort -rh | head'
 alias kubectl="kubecolor"
-
+alias kx="kubectx"
+alias kns="kubens"
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
