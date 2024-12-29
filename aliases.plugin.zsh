@@ -15,6 +15,8 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 alias cd..='cd ..'
+alias cpr='cp -r'
+alias rmrf='rm -rf'
 alias ducks='du -cks * | sort -rn | head'
 alias duh='du -hs * | sort -rh | head'
 
