@@ -19,6 +19,7 @@ alias cpr='cp -r'
 alias rmrf='rm -rf'
 alias ducks='du -cks * | sort -rn | head'
 alias duh='du -hs * | sort -rh | head'
+alias kubectl="kubecolor"
 
 
 alias grep='grep --color'
