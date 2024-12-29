@@ -31,7 +31,7 @@ alias sshconf='${=EDITOR} ~/.ssh/config'
 alias i3conf='${=EDITOR} ~/.config/i3/config.base'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias xclip='xclip -selection c'
-alias nano='nano -c'
+alias nano='nano -clSg_/'
 alias pax='ps aux'
 alias ssh='TERM=xterm-256color ssh'
 alias packages='comm -23 <(yay -Qqett | sort) <(yay -Qqg base -g base-devel | sort | uniq)'
