@@ -1,19 +1,18 @@
-# Add your own custom plugins in the custom/plugins directory. Plugins placed
-# here will override ones with the same name in the main plugins directory.
-# Advanced Aliases.
-# Use with caution
-#
+# Personal zsh aliases, loaded via zplug ("peter-si/zsh-aliases").
+# Public repo: no host details here. Machine-specific values (DEV_SSH_HOST,
+# DEV_VNC_TARGET) are exported by the private dotfiles.
 
-# ls, the common ones I use a lot shortened for rapid fire usage
-alias l='ls -lFh'     #size,show type,human readable
-alias la='ls -lAFh'   #long list,show almost all,show type,human readable
-alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
-alias ldot='ls -ld .*'
-alias lS='ls -1FSsh'
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
+# ls shortcuts. `command ls` pins GNU ls: these flags break if `ls` is aliased
+# to eza (as on Omarchy, where zshrc also redefines la/ll/lt with eza).
+alias l='command ls -lFh'     #size,show type,human readable
+alias la='command ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='command ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='command ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='command ls -l'      #long list
+alias ldot='command ls -ld .*'
+alias lS='command ls -1FSsh'
+alias lart='command ls -1Fcart'
+alias lrt='command ls -1Fcrt'
 alias cd..='cd ..'
 alias cpr='cp -r'
 alias rmrf='rm -rf'
@@ -26,19 +25,15 @@ alias kns="kubens"
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-alias t='task'
-alias update='yay -Sy --noconfirm archlinux-keyring;yay -Su --noconfirm linux linux-headers'
+alias t='tmux attach || tmux new -s Work'
 
 alias zshreload='source ~/.zshrc'
 alias zshconf='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
 alias sshconf='${=EDITOR} ~/.ssh/config'
-alias i3conf='${=EDITOR} ~/.config/i3/config.base'
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias nano='nano -clSg_/'
 alias pax='ps aux'
 alias ssh='TERM=xterm-256color ssh'
 alias packages='comm -23 <(yay -Qqett | sort) <(yay -Qqg base -g base-devel | sort | uniq)'
-#alias undim='~/.local/share/scripts/lockscreen/locker.sh undim'
 
 # Remote dev box. DEV_SSH_HOST (an ~/.ssh/config Host) and DEV_VNC_TARGET
 # (host:port) are exported per-machine, so no host details live in this repo.
@@ -57,17 +52,15 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep -i'
 alias -g L="| less"
-alias -g M="| most"
 alias -g LL="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
-alias -g P="2>&1| pygmentize -l pytb"
 
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+alias fdir='find . -type d -name'
+alias ffile='find . -type f -name'
 
 alias h='history'
 alias hgrep="fc -El 0 | grep"
@@ -95,22 +88,16 @@ if is-at-least 4.2.0; then
     for ft in $_image_fts; do alias -s $ft=$XIVIEWER; done
   fi
 
-  _media_fts=(ape avi flv m4a mkv mov mp3 mpeg mpg ogg ogm rm wav webm)
-  for ft in $_media_fts; do alias -s $ft=mplayer; done
-
-  #read documents
-  alias -s pdf=acroread
-  alias -s ps=gv
-  alias -s dvi=xdvi
-  alias -s chm=xchm
-  alias -s djvu=djview
+  # media + documents open in the desktop's default app
+  if (( $+commands[xdg-open] )); then
+    _open_fts=(ape avi flv m4a mkv mov mp3 mpeg mpg ogg ogm wav webm pdf djvu)
+    for ft in $_open_fts; do alias -s $ft=xdg-open; done
+  fi
 
   #list whats inside packed file
   alias -s zip="unzip -l"
   alias -s rar="unrar l"
   alias -s tar="tar tf"
-  alias -s tar.gz="echo "
-  alias -s ace="unace l"
 fi
 
 # Make zsh know about hosts already accessed by SSH
