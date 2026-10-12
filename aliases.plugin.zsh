@@ -40,6 +40,13 @@ alias ssh='TERM=xterm-256color ssh'
 alias packages='comm -23 <(yay -Qqett | sort) <(yay -Qqg base -g base-devel | sort | uniq)'
 #alias undim='~/.local/share/scripts/lockscreen/locker.sh undim'
 
+# Remote dev box. DEV_SSH_HOST (an ~/.ssh/config Host) and DEV_VNC_TARGET
+# (host:port) are exported per-machine, so no host details live in this repo.
+# dev  — ssh into a persistent tmux session
+# devv — the box's VNC desktop in Remmina (native-Wayland clipboard, works both ways)
+alias dev='ssh -t "${DEV_SSH_HOST:?DEV_SSH_HOST not set}" tmux new -A -s main'
+alias devv='remmina -c "vnc://${DEV_VNC_TARGET:?DEV_VNC_TARGET not set}" >/dev/null 2>&1 &!'
+
 # Command line head / tail shortcuts
 if [[ -n $WAYLAND_DISPLAY ]] && (( $+commands[wl-copy] )); then
   alias -g C='| wl-copy'
